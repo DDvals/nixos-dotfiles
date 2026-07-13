@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -58,16 +58,19 @@
   services.displayManager.ly.enable = true;
   services.xserver = {
     enable = true;
-    displayManager.sessionCommands = "xrandr --output Virtual-1 --primary --mode 1920x1080";	
-    windowManager.qtile.enable = true;	
+    displayManager.sessionCommands = "xrandr --output Virtual-1 --primary --mode 1920x1080";
+    windowManager.qtile.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."danzi" = {
     isNormalUser = true;
     description = "Danzi";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    packages = with pkgs; [ ];
   };
 
   # Allow unfree packages
@@ -89,7 +92,7 @@
   ];
 
   services.spice-vdagentd.enable = true;
-  services.qemuGuest.enable = true; 
+  services.qemuGuest.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -116,7 +119,10 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   system.stateVersion = "26.05"; # Did you read the comment?
 }
