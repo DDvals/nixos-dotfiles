@@ -16,10 +16,4 @@
     nixpkgs-fmt
     nodejs
   ];
-
-  #xdg.configFile."nvim" = {
-  #	source = config.lib.file.mkOutOfStoreSymlink "/home/danzi/nixos-dotfiles/config/neovim-config";
-  #	recursive = true;
-  #
-  #};
 }
