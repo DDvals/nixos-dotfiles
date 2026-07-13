@@ -124,5 +124,13 @@
     "nix-command"
     "flakes"
   ];
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+  nix.optimise.automatic = true;
+
   system.stateVersion = "26.05"; # Did you read the comment?
 }
