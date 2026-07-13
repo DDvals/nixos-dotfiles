@@ -4,6 +4,7 @@ let
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     qtile = "qtile";
+    niri = "niri";
     nvim = "nvim";
     alacritty = "dotfiles/alacritty";
   };
@@ -23,6 +24,7 @@ in
   };
   home.stateVersion = "26.05";
   home.packages = with pkgs; [
+    alacritty
     firefox
     zip
     unzip
@@ -30,6 +32,7 @@ in
     git-credential-manager
     gcc
     neovim
+    pcmanfm
   ];
   programs.bash = {
     enable = true;

@@ -17,7 +17,7 @@
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
+  hardware.graphics.enable = true;
   networking.hostName = "nixos-vm"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -79,11 +79,18 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     git
     alacritty
     spice-vdagent
+    fuzzel
+    swaylock
+    mako
+    #waybar
+    swayidle
+    swaybg
+    xwayland-satellite
   ];
 
   fonts.packages = with pkgs; [
@@ -93,6 +100,20 @@
 
   services.spice-vdagentd.enable = true;
   services.qemuGuest.enable = true;
+  services.gvfs.enable = true; # automount usb
+
+  # niri
+  programs.niri.enable = true;
+  programs.waybar.enable = true;
+  security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.swaylock = { };
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+  };
+  systemd.user.services.niri.enableDefaultPath = false;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
