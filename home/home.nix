@@ -5,6 +5,7 @@ let
   configs = {
     qtile = "qtile";
     nvim = "nvim";
+    alacritty = "dotfiles/alacritty";
   };
 in
 {
