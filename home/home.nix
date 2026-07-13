@@ -38,6 +38,16 @@ in
     };
   };
 
+  programs.vim = {
+    enable = true;
+    extraConfig = ''
+      set number
+      set ic
+      syntax on
+      set wildmenu
+    '';
+  };
+
   xdg.configFile = builtins.mapAttrs (name: subpath: {
     source = create_symlink "${dotfiles}/${subpath}";
     recursive = true;
