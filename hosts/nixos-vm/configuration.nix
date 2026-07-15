@@ -64,7 +64,6 @@
   services.xserver = {
     enable = true;
     displayManager.sessionCommands = "xrandr --output Virtual-1 --primary --mode 1920x1080";
-    windowManager.qtile.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
