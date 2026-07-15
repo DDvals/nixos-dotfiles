@@ -10,9 +10,10 @@
     git
     git-credential-manager
     gcc
-    neovim
     pcmanfm
+    ristretto
   ];
 
   services.gvfs.enable = true; # automount usb
+  services.tumbler.enable = true; # tumbnail
 }
