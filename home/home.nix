@@ -29,6 +29,7 @@ in
     enable = true;
     shellAliases = {
       nix-rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles/";
+      nix-clean = "sudo nix-collect-garbage -d";
     };
   };
 
