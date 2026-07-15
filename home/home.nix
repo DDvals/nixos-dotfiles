@@ -24,15 +24,6 @@ in
   };
   home.stateVersion = "26.05";
   home.packages = with pkgs; [
-    alacritty
-    firefox
-    zip
-    unzip
-    git
-    git-credential-manager
-    gcc
-    neovim
-    pcmanfm
   ];
   programs.bash = {
     enable = true;

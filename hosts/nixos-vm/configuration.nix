@@ -8,6 +8,10 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../modules/common.nix
+    ../../modules/fonts.nix
+    ../../modules/niri.nix
+    ../../modules/qemu_guest.nix
   ];
 
   # Bootloader.
@@ -83,37 +87,9 @@
     wget
     git
     alacritty
-    spice-vdagent
-    fuzzel
-    swaylock
-    mako
-    #waybar
-    swayidle
-    swaybg
-    xwayland-satellite
   ];
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.hack
-  ];
-
-  services.spice-vdagentd.enable = true;
-  services.qemuGuest.enable = true;
   services.gvfs.enable = true; # automount usb
-
-  # niri
-  programs.niri.enable = true;
-  programs.waybar.enable = true;
-  security.polkit.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.swaylock = { };
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
-  };
-  systemd.user.services.niri.enableDefaultPath = false;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
