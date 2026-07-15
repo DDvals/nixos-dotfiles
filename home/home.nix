@@ -46,4 +46,7 @@ in
     source = create_symlink "${dotfiles}/${subpath}";
     recursive = true;
   }) configs;
+
+  home.file."Pictures/wallpapers/default.jpg".source =
+    ../assets/wallpapers/cyberpunk_car_pixelart.png;
 }
