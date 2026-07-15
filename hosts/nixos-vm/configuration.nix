@@ -9,6 +9,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/common.nix
+    ../../modules/development.nix
     ../../modules/fonts.nix
     ../../modules/niri.nix
     ../../modules/qemu_guest.nix
